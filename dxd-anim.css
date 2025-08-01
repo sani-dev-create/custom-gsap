@@ -1,0 +1,44 @@
+/* Base configuration for animation starting states */
+[anim="fade-in"] {
+  opacity: 0;
+}
+
+[anim="slide-up"] {
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
+[anim="slide-down"] {
+  opacity: 0;
+  transform: translateY(-2rem);
+}
+
+[anim="slide-left"] {
+  opacity: 0;
+  transform: translateX(-2rem);
+}
+
+[anim="slide-right"] {
+  opacity: 0;
+  transform: translateX(2rem);
+}
+
+[anim="scale-in"] {
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+/* Optional: Add will-change to optimize performance */
+[anim] {
+  will-change: transform, opacity;
+}
+
+/* Performance optimization: Hint browser about upcoming transforms */
+
+/* Graceful degradation: Ensure visibility when JavaScript is unavailable */
+noscript ~ * [anim] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Implementation note: Include <noscript></noscript> tag in body for CSS fallback support */
